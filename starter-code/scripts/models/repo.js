@@ -5,10 +5,12 @@
 
   reposObj.requestRepos = function(callback) {
 
-    /* TODO: How would you like to fetch your repos? Someone say AJAX?!
+    /* TODO: done How would you like to fetch your repos? Someone say AJAX?!
       Do not forget to call the callback! */
-    $.ajax('https://api.github.com/users/cmd-kvn/repos'), {
+    $.ajax('https://api.github.com/user/repos', {
       method: 'GET', // usually default
+      //headers: {Authorization: 'token ' + githubToken}, // this or parameters version
+      data: {access_token: githubToken}, // parameters version, developer.github.com/v3/
       success: function(response) {
         reposObj.allRepos = response;
         console.log('allRepos ', reposObj.allRepos);
@@ -16,7 +18,7 @@
       error: function(response) {
         console.log('ooops', response);
       }
-    };
+    });
     console.log('finished ajax');
   };
 
