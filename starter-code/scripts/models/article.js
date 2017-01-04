@@ -1,6 +1,6 @@
 (function(module) {
   function Article (opts) {
-    Object.keys(opts).forEach(function(e, index, keys) {
+    Objectkeys(opts).forEach(function(e, index, keys) {
       this[e] = opts[e];
     },this);
   }

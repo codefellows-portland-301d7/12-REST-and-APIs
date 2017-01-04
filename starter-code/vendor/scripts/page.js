@@ -448,7 +448,7 @@
     this.path = (path === '*') ? '(.*)' : path;
     this.method = 'GET';
     this.regexp = pathtoRegexp(this.path,
-      this.keys = [],
+      thiskeys = [],
       options.sensitive,
       options.strict);
   }
@@ -487,7 +487,7 @@
    */
 
   Route.prototype.match = function(path, params) {
-    var keys = this.keys,
+    var keys = thiskeys,
       qsIndex = path.indexOf('?'),
       pathname = ~qsIndex ? path.slice(0, qsIndex) : path,
       m = this.regexp.exec(decodeURIComponent(pathname));
@@ -922,7 +922,7 @@ function escapeGroup (group) {
  * @return {RegExp}
  */
 function attachKeys (re, keys) {
-  re.keys = keys
+  rekeys = keys
   return re
 }
 
