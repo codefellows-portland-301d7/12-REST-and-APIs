@@ -3,14 +3,15 @@
 
   reposObj.allRepos = [];
 
-  reposObj.requestRepos = function(callback) { //add callback into function
+  reposObj.requestRepos = function(callback) {
     /* TODO: DONE!!! FIRST How would you like to fetch your repos? Someone say AJAX?!
       Do not forget to call the callback! */
     $.ajax({
       url: 'https://api.github.com/users/SmithingChick/repos',
       headers: {Authorization:'token ' + key},
       success: function(repoData) {
-        callback(repoData);
+        reposObj.allRepos = repoData;
+        callback();
       }
     });
   };
