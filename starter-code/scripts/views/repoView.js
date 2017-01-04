@@ -1,18 +1,13 @@
 (function(module) {
   var repoView = {};
 
-  /* TODO: SECOND Let's compile our new template!
+  /* TODO: DONE! SECOND Let's compile our new template!
        Save the result of invoking Handlebars in this 'repoCompiler' variable
        that we will pass to the append method below. */
   var repoCompiler = function(repos, repoTemplateId) {
-    var repoTemplate = Handlebars.complie($(repoTemplateId).text());
+    var repoTemplate = Handlebars.compile($('#repo-template').text());
 
-    repos.description = ;
-    repos.language = ;
-    repos.created = ;
-    repos.lastUpdate = ;
-    repos.watchers = ; //"{{#if watchers_count}} in index.html
-
+    return repoTemplate(repos);
   };  // Finish the Handlebars method here!
 
   repoView.renderRepos = function() {
@@ -22,7 +17,6 @@
     );
   };
 /* TODO: Call the function that loads (or 'requests') our repo data.
-    Pass in some view function as a higher order callback, so our repos
-    will render after the data is loaded. */
-
+    Pass in some view function as a higher order callback, so our repos will render after the data is loaded. */
+  reposObj.requestRepos(renderRepos);
 });
