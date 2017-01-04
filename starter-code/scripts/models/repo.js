@@ -13,7 +13,7 @@
       data: {access_token: githubToken}, // parameters version, developer.github.com/v3/
       success: function(response) {
         reposObj.allRepos = response;
-        console.log('allRepos ', reposObj.allRepos);
+        callback();
       },
       error: function(response) {
         console.log('ooops', response);
@@ -28,6 +28,6 @@
     });
   };
 
-  reposObj.requestRepos();
+  //reposObj.requestRepos();
   module.reposObj = reposObj;
 })(window);
