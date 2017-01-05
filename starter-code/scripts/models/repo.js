@@ -14,8 +14,15 @@
       headers: {'Authorization': 'token ' +
       token },
       success: function (data){
+        data.forEach( function (one) { reposObj.allRepos.push(one);
+        });
+        console.log(data);
         callback();
+      },
+      fail: function (data){
+        console.log('fail!\n' + data);
       }
+
     });
 
   };
