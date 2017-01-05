@@ -6,6 +6,18 @@
   reposObj.requestRepos = function(callback) {
     /* TODO: How would you like to fetch your repos? Someone say AJAX?!
       Do not forget to call the callback! */
+    $.ajax({
+      url: 'https://api.github.com/user/repos' +
+     '?per_page=10' +
+     '&sort=updated',
+      type: 'GET',
+      headers: {'Authorization': 'token ' +
+      token },
+      success: function (data){
+        callback();
+      }
+    });
+
   };
 
   reposObj.withTheAttribute = function(myAttr) {
