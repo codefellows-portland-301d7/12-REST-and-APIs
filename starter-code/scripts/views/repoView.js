@@ -8,6 +8,7 @@
     var template = Handlebars.compile(source);
     var html = template(ele);
     return html;
+    
   repoView.renderRepos = function() {
     $('#about ul').empty().append(
       reposObj.withTheAttribute('name')  // TODO: experiment changing this attribute!
