@@ -8,9 +8,8 @@
       Do not forget to call the callback! */
     $.ajax('https://api.github.com/user/repos', {
       method: 'GET',
-      data: {
-        secret_token: token
-      },
+      headers: {'Authorization': 'token ' +
+      secret_token },
       success: function(response) {
         console.log('success');
         console.log(response);
