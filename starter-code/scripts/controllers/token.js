@@ -1,1 +1,0 @@
-var secret_token = '5bc55c918771e76f757162547f21231d72d9de00';
